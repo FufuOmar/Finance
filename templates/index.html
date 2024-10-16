@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+<h2 class="text-center my-4">Portfolio</h2>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover text-center">
+        <thead class="thead-dark">
+            <tr>
+                <th>Stock</th>
+                <th>Shares</th>
+                <th>Current Price</th>
+                <th>Total Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in portfolio %}
+            <tr>
+                <td>{{ i.symbol }}</td>
+                <td>{{ i.shares }}</td>
+                <td>${{ i.price }}</td>
+                <td>${{ i.shares * i.price }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    Current Cash: ${{ "{:.2f}".format(cash) }}
+    Account Value: $
+</div>
+
+{% endblock %}
